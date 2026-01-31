@@ -31,8 +31,8 @@ object InputTextTool {
             )
         ) { request ->
             try {
-                val deviceId = request.arguments["device_id"]?.jsonPrimitive?.content
-                val text = request.arguments["text"]?.jsonPrimitive?.content
+                val deviceId = request.arguments?.get("device_id")?.jsonPrimitive?.content
+                val text = request.arguments?.get("text")?.jsonPrimitive?.content
                 
                 if (deviceId == null || text == null) {
                     return@RegisteredTool CallToolResult(

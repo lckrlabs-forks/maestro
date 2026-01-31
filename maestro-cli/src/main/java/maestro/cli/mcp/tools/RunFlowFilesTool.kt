@@ -43,9 +43,9 @@ object RunFlowFilesTool {
             )
         ) { request ->
             try {
-                val deviceId = request.arguments["device_id"]?.jsonPrimitive?.content
-                val flowFilesString = request.arguments["flow_files"]?.jsonPrimitive?.content
-                val envParam = request.arguments["env"]?.jsonObject
+                val deviceId = request.arguments?.get("device_id")?.jsonPrimitive?.content
+                val flowFilesString = request.arguments?.get("flow_files")?.jsonPrimitive?.content
+                val envParam = request.arguments?.get("env")?.jsonObject
                 
                 if (deviceId == null || flowFilesString == null) {
                     return@RegisteredTool CallToolResult(

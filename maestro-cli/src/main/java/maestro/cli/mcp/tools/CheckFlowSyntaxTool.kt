@@ -23,7 +23,7 @@ object CheckFlowSyntaxTool {
             )
         ) { request ->
             try {
-                val flowYaml = request.arguments["flow_yaml"]?.jsonPrimitive?.content
+                val flowYaml = request.arguments?.get("flow_yaml")?.jsonPrimitive?.content
                 
                 if (flowYaml == null) {
                     return@RegisteredTool CallToolResult(

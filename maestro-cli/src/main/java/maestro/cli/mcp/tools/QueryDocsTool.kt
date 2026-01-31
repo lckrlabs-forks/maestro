@@ -30,7 +30,7 @@ object QueryDocsTool {
             )
         ) { request ->
             try {
-                val question = request.arguments["question"]?.jsonPrimitive?.content
+                val question = request.arguments?.get("question")?.jsonPrimitive?.content
                 if (question.isNullOrBlank()) {
                     return@RegisteredTool CallToolResult(
                         content = listOf(TextContent("question parameter is required")),

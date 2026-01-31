@@ -27,7 +27,7 @@ object BackTool {
             )
         ) { request ->
             try {
-                val deviceId = request.arguments["device_id"]?.jsonPrimitive?.content
+                val deviceId = request.arguments?.get("device_id")?.jsonPrimitive?.content
                 
                 if (deviceId == null) {
                     return@RegisteredTool CallToolResult(

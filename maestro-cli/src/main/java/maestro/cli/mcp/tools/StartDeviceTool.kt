@@ -31,8 +31,8 @@ object StartDeviceTool {
             )
         ) { request ->
             try {
-                val deviceId = request.arguments["device_id"]?.jsonPrimitive?.content
-                val platformStr = request.arguments["platform"]?.jsonPrimitive?.content ?: "ios"
+                val deviceId = request.arguments?.get("device_id")?.jsonPrimitive?.content
+                val platformStr = request.arguments?.get("platform")?.jsonPrimitive?.content ?: "ios"
                 
                 // Get all connected and available devices
                 val availableDevices = DeviceService.listAvailableForLaunchDevices(includeWeb = true)

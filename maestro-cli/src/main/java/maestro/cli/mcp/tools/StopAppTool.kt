@@ -31,8 +31,8 @@ object StopAppTool {
             )
         ) { request ->
             try {
-                val deviceId = request.arguments["device_id"]?.jsonPrimitive?.content
-                val appId = request.arguments["appId"]?.jsonPrimitive?.content
+                val deviceId = request.arguments?.get("device_id")?.jsonPrimitive?.content
+                val appId = request.arguments?.get("appId")?.jsonPrimitive?.content
                 
                 if (deviceId == null || appId == null) {
                     return@RegisteredTool CallToolResult(
